@@ -1,0 +1,89 @@
+﻿<Window x:Class="CabinetMedical.Views.FenetreConsultations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CabinetMedical.Views"
+        mc:Ignorable="d"
+        Title="Liste Utilisateurs" Height="630.391" Width="806.336" >
+
+    <!-- ResizeMode="NoResize" -->
+
+
+    <Grid Background="Bisque" Margin="0,0,3.333,0" >
+
+
+        <!--Button as a Link button using style-->
+        <!--end Button as a Link button using style-->
+        <Grid Name="AjoutGrid" Margin="10,0,0,335.333" Background="#FFC1E1DD" Height="218" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="364">
+
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="19,11,0,0" x:Name="lbNom" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.637,0.42" ><Run Text="Nom "/><Run Text=" Consultation"/></TextBlock>
+            <!--For password-->
+            <Button Content="Enregistrer " Command="{Binding AjouterC}" Height="23" HorizontalAlignment="Left" Margin="55,113,0,0" x:Name="btEnregistrer" VerticalAlignment="Top" Width="95"  RenderTransformOrigin="2.826,1.181" Click="btEnregistrer1_Click"    />
+            <Button Content="RaZC" Height="23" HorizontalAlignment="Left" Margin="171,113,0,0" x:Name="btRaZ" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.491,-0.609"  />
+            <Button Content="AnnulerC" Height="23" HorizontalAlignment="Left" Margin="255,113,0,0" x:Name="btAnnuler" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.138,0.493" Click="btAnnuler1_Click"   />
+
+
+
+            <TextBlock x:Name="lbPrenom" HorizontalAlignment="Left" Margin="19,57,0,0" TextWrapping="Wrap" Text="Tarif Consultation" VerticalAlignment="Top" Width="84" Height="51" RenderTransformOrigin="0.069,0.623"/>
+            <TextBox x:Name="tbPrenom" HorizontalAlignment="Left" Height="23" Margin="103,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="{Binding Consultation.TarifConsultation}"/>
+            <TextBox x:Name="tbNom" HorizontalAlignment="Left" Height="23" Margin="103,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="{Binding Consultation.NomNature}"/>
+        </Grid>
+
+        <WrapPanel Margin="10,285,215.667,64.333" HorizontalAlignment="Center" Width="571">
+            <ListView x:Name="Liste"   ItemsSource="{Binding ListeConsultations, IsAsync=True, Mode=TwoWay}" SelectedItem="{Binding ConsultationSelect}"  Height="250" Width="237">
+
+                <ListView.View  >
+                    <GridView  >
+                        <GridViewColumn  Width="90" Header="Nature" DisplayMemberBinding="{Binding NomNature, IsAsync=True, Mode=TwoWay}"/>
+                        <GridViewColumn  Width="140" Header="Tarif" DisplayMemberBinding="{Binding TarifConsultation, IsAsync=True, Mode=TwoWay}"/>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </WrapPanel>
+        <Grid Margin="10,0,-9.333,65"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="510*"/>
+                <ColumnDefinition Width="287*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btModifier" Content="Modifier Ville" HorizontalAlignment="Left" Margin="171.667,369,0,0" VerticalAlignment="Top" Width="89" Height="33" Grid.Column="1" />
+            <Button x:Name="btSupprimer" Content="Supprimer Ville" Command="{Binding SuprimerV}" HorizontalAlignment="Left" Margin="171.667,436,0,0" VerticalAlignment="Top" Width="89" Height="30" RenderTransformOrigin="0.515,-1.911" Grid.Column="1"/>
+            <Button x:Name="btAjouter" Content="Ajoute Viller" HorizontalAlignment="Left" Margin="171.667,312,0,0" VerticalAlignment="Top" Width="89" Height="33"  RenderTransformOrigin="-0.009,0.707" Grid.Column="1" Click="btAjouter2_Click"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="31" Stroke="Black" VerticalAlignment="Top" Width="797" Grid.ColumnSpan="2"/>
+            <Grid x:Name="AjoutGrid_Copy" Margin="414,0,0,269.333" Background="#FFC1E1DD" Height="217" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="356" Grid.ColumnSpan="2">
+
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="19,11,0,0" x:Name="lbNom1" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.637,0.42" ><Run Text="Nom "/><Run Text=" Ville"/></TextBlock>
+
+                <Button Content="Enregistrer" Command="{Binding AjouterV}" Height="23" HorizontalAlignment="Left" Margin="67,111,0,0" x:Name="btEnregistrer1" VerticalAlignment="Top" Width="70"  RenderTransformOrigin="2.826,1.181" Click="btEnregistrer2_Click"    />
+                <Button Content="RaZ" Height="23" HorizontalAlignment="Left" Margin="162,111,0,0" x:Name="btRaZ1" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.491,-0.609"  />
+                <Button Content="Annuler" Height="23" HorizontalAlignment="Left" Margin="255,111,0,0" x:Name="btAnnuler1" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.138,0.493" Click="btAnnuler2_Click"   />
+
+
+
+                <TextBlock x:Name="lbPrenom1" HorizontalAlignment="Left" Margin="19,57,0,0" TextWrapping="Wrap" Text="Code postal" VerticalAlignment="Top" Width="84" Height="23" RenderTransformOrigin="0.069,0.623"/>
+                <TextBox x:Name="tbPrenom1" HorizontalAlignment="Left" Height="23" Margin="103,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="{Binding ville.CodePostal}"/>
+                <TextBox x:Name="tbNom1" HorizontalAlignment="Left" Height="23" Margin="103,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="{Binding ville.NomVille}"/>
+            </Grid>
+            <ListView x:Name="Liste_Copy" ItemsSource="{Binding ListeVilles, IsAsync=True}" SelectedItem="{Binding  VilleSelect}"  Height="250" Margin="414,286,130,0.333" Grid.ColumnSpan="2" >
+
+                <ListView.View  >
+                    <GridView  >
+                        <GridViewColumn  Width="100" Header="Nom" DisplayMemberBinding="{Binding NomVille, IsAsync=True}"/>
+                        <GridViewColumn  Width="150" Header="Code Postal" DisplayMemberBinding="{Binding CodePostal, IsAsync=True}"/>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button x:Name="btModifier_Copy" Content="Modifier Consultation" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="124" Height="33" />
+            <Button x:Name="btSupprimer_Copy" Content="Supprimer Consultation" Command="{Binding SuprimerC}" HorizontalAlignment="Left" Margin="240,436,0,0" VerticalAlignment="Top" Width="124" Height="30" RenderTransformOrigin="0.515,-1.911"/>
+            <Button x:Name="btAjouter_Copy" Content="Ajouter Consultation" HorizontalAlignment="Left" Margin="240,312,0,0" VerticalAlignment="Top" Width="124" Height="33"  RenderTransformOrigin="-0.009,0.707" Click="btAjouter2_Click"/>
+
+        </Grid>
+
+
+    </Grid>
+</Window>

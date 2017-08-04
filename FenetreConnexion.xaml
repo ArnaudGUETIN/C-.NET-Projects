@@ -1,0 +1,24 @@
+﻿<Window x:Class="CabinetMedical.Views.FenetreConnexion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CabinetMedical.Views"
+        mc:Ignorable="d"
+        Title="FenetreConnexion"  Height="354.034" Width="531.895">
+    <Grid Background="#FFE8E8E8">
+
+
+        <TextBlock Height="22" HorizontalAlignment="Left" Margin="62,98,0,0" Name="textBlock1" Text="Login" VerticalAlignment="Top" Width="67" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,154,0,0" Name="textBlock2" Text="Password" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.318,-0.21" />
+        <TextBox Height="22" HorizontalAlignment="Left" Margin="123,98,0,0" Name="textBoxLogin" VerticalAlignment="Top" Width="247" Text="{Binding Utilisateur.Login}" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="123,154,0,0" Name="passwordBox" VerticalAlignment="Top" Width="247" PasswordChanged="PassChange"/>
+        <Button Content="Connexion" Command="{Binding Connexion}" Height="23" HorizontalAlignment="Left" Margin="266,236,0,0" Name="ConnexionButton" VerticalAlignment="Top" Width="104"    />
+        <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="222,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+        <Image HorizontalAlignment="Left" Height="101" Margin="415,0,0,0" VerticalAlignment="Top" Width="110">
+            <Image.Source>
+                <BitmapImage UriSource="file:///C:/Users/Arnaud\Documents/Visual Studio 2017/Projects/CabinetMedicalSolution/CabinetMedical/Media/22273.png"/>
+            </Image.Source>
+        </Image>
+    </Grid>
+</Window>
